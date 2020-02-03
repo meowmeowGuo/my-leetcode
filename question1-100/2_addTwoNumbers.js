@@ -58,13 +58,7 @@ const addTwoNumbers = function (l1, l2) {
   if (carry) {
     lastNode.next = new ListNode(parseInt(1));
   }
-  const resultList = [];
-  let resultNode = head;
-  while (resultNode) {
-    resultList.push(resultNode.val);
-    resultNode = resultNode.next;
-  }
-  return resultList;
+  return head;
 };
 
 const res = addTwoNumbers(l1, l2);
