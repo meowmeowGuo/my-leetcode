@@ -43,10 +43,9 @@ const longestPalindrome = function (s) {
   }
   const max = Math.max(...P);
   const maxIndex = P.indexOf(max);
-  return max ? (T.substring(maxIndex - max / 2, maxIndex + max / 2))
-    .replace(/#/g, '') : s[0];
+  return (T.substring(maxIndex - max / 2, maxIndex + max / 2)).replace(/#/g, '');
 };
 
-const s = 'ccc';
+const s = 'cba';
 const s2 = 'bananas';
-console.log(longestPalindrome(s2));
+console.log(longestPalindrome(s));
