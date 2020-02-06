@@ -29,7 +29,7 @@ const convert = function (s, numRows) {
   if (numRows < 1) {
     return '';
   }
-  if (numRows === 1) {
+  if (numRows == 1) {
     return s;
   }
   // Z字的一横加一斜为一组 tuple
