@@ -36,5 +36,16 @@ const isPalindrome2 = function (x) {
   return parseInt(restArray.join('')) === x;
 };
 
+/* 不转换字符串2 */
+const isPalindrome3 = function (x) {
+  let s = 0;
+  let x1 = x;
+  while (x1 > 0) {
+    s = s * 10 + x1 % 10;
+    x1 = Math.floor(x1 / 10);
+  }
+  return s === x;
+};
+
 a = 10;
 console.log(isPalindrome2(a));
