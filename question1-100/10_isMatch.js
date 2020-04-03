@@ -10,43 +10,10 @@
  * @return {boolean}
  */
 const isMatch = function (s, p) {
-  if (p === s) {
-    return true;
-  } else if (p === '.*') {
-    return true;
-  } else if (!p.includes('*') && !p.includes('.')) {
-    // p!==s 且 p 既不包含 '*' 也不包含 '.'
-    return false;
-  } else {
-    let sIndex = 0;
-    for (let i = 0; i < p.length; i++) {
-      if (p[0] === '*') {
-        continue;
-      }
-      if (p[i] === '.') {
-        sIndex += 1;
-      } else if (p[i] === '*' && i - 1 > -1) {
-        for (let j = sIndex; j < s.length; j++) {
-          if (p[i - 1] === '.') {
-            sIndex += 1;
-          }
-          if (s[j] === p[i - 1]) {
-            sIndex += 1;
-          } else {
-            break;
-          }
-        }
-      } else if (p[i] === s[sIndex]) {
-        sIndex += 1;
-      } else if (i - 1 > -1 && i - 2 > -1 && p[i - 1] === '*' && p[i - 2] === p[i]) {
-        sIndex += 1;
-      }
-    }
-    return sIndex === s.length;
-  }
+
 };
 
-let array = [['aaab', 'a*ab'], ['ab', '.*c'], ['aa', 'a'], ['aa', 'a*'],
+let array = [['aaab', 'a*ab'], ['ab', '.*b'], ['aa', 'a'], ['aa', 'a*'],
   ['ab', '.*'], ['aab', 'a*b*c*'], ['mississippi', 'mis*is*p*.']];
 array.forEach(item => {
   console.log('s= ', item[0], 'p= ', item[1]);
